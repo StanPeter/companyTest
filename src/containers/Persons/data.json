@@ -1,0 +1,26 @@
+[
+  {
+	"name": "Alfa",
+	"age": 12,
+	"sex": "F",
+	"updatedDate": "2020-02-28T05:08:58.204Z"
+  },
+  {
+	"name": "Beta",
+	"age": 23,
+	"sex": "M",
+	"updatedDate": "2020-02-28T05:08:58.204Z"
+  },
+  {
+	"name": "Gamma",
+	"age": 34,
+	"sex": "F",
+	"updatedDate": "2020-02-28T05:08:58.204Z"
+  },
+  {
+	"name": "Delta",
+	"age": 45,
+	"sex": "O",
+	"updatedDate": "2020-02-28T05:08:58.204Z"
+  }
+]
