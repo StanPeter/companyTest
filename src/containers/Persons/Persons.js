@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "./Persons.css"
+//components
 import Person from "../../components/Person/Person";
 import Data from "./data.json"
 import Aux from "../../hoc/Aux";
 import AddPerson from "../../components/AddPerson/AddPerson";
+//for redux
+import { connect } from "react-redux";
+import * as actionTypes from "../../store/action";
 
-// import CounterControl from "../../components/CounterControl/CounterControl";
-// import CounterOutput from "../../components/CounterOutput/CounterOutput";
-// import * as actionTypes from "../../store/action";
 
 class Persons extends Component {
     state = {
@@ -136,4 +136,24 @@ class Persons extends Component {
     }
 }
 
+// const mapStateToProps = state => {
+//     return {
+//         ctr: state.ctr.counter,
+//         resultCtr: state.res.results
+//     };
+// };
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         addPerson: (e) => dispatch({type: actionTypes.ADD_PERSON, e: e}),
+//         prepEditPerson: (personIndex) => dispatch({type: actionTypes.PREP_EDIT_PERSON, personIndex: personIndex}),
+//         updatePerson: (e) => dispatch({type: actionTypes.UPDATE_PERSON, e: e}),
+//         removePerson: (personIndex) => dispatch({type: actionTypes.REMOVE_PERSON, personIndex: personIndex}),
+//         orderByAge: () => dispatch({type: actionTypes.ORDER_BY_AGE}),
+//         orderBySex: (e) => dispatch({type: actionTypes.ORDER_BY_SEX, e: e})
+//     };
+// };
+
+
 export default Persons;
+// export default connect(mapStateToProps, mapDispatchToProps)(Persons);
