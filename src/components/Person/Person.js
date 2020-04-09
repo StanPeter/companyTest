@@ -3,10 +3,9 @@ import "./Person.css";
 
 
 const Person = (props) => {
-    console.log(props.editedPerson);
-    
+
     return (
-        <tr style={{"backgroundColor": props.editedPerson===props.id ? "green": "unset"}}>
+        <tr style={{display: props.filter === props.person.sex || props.filter === null? "table-row" : "none"}}>
             <td>{props.person.name}</td>
             <td>{props.person.age}</td>
             <td>{props.person.sex}</td>
@@ -16,8 +15,6 @@ const Person = (props) => {
         </tr>
     )
 }
-
-
 
 
 export default Person;

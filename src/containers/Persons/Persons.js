@@ -13,8 +13,11 @@ import AddPerson from "../../components/AddPerson/AddPerson";
 class Persons extends Component {
     state = {
         persons: [...Data],
+        filter: null,
         isEdit: false,
-        editedPerson: null
+        editedPersonIndex: null,
+        editedPerson: null,
+        isOrdered: "MFO" 
     };
 
     addPerson = (e) => {
@@ -34,10 +37,11 @@ class Persons extends Component {
     };
 
     prepEditPerson = (personIndex) => {
-        if(this.state.isEdit) {
-            this.setState({isEdit: false, editPerson: null});
+        if(this.state.isEdit && this.state.editedPersonIndex === personIndex) {
+            this.setState({isEdit: false, editedPersonIndex: null, editedPerson: null});
         } else {
-            this.setState({isEdit: true, editedPerson: personIndex});
+            const editedPerson = this.state.persons[personIndex];
+            this.setState({isEdit: true, editedPersonIndex: personIndex, editedPerson: editedPerson});
         }
         }
 
@@ -47,7 +51,7 @@ class Persons extends Component {
         const persons = [...this.state.persons];
 
         const updatedPersonIndex = this.state.persons.findIndex((_, index) => {
-            return this.state.editedPerson === index;
+            return this.state.editedPersonIndex === index;
         });
 
         persons[updatedPersonIndex].name = e.target.name.value;
@@ -55,7 +59,7 @@ class Persons extends Component {
         persons[updatedPersonIndex].sex = e.target.sex.value;
         persons[updatedPersonIndex].updatedDate = updatedDate;
 
-        this.setState({persons: persons, isEdit: false, editPerson: null});        
+        this.setState({persons: persons, isEdit: false, editedPersonIndex: null, editedPerson: null});        
 
         e.preventDefault();
     }
@@ -64,13 +68,32 @@ class Persons extends Component {
         const updatedPersons = [...this.state.persons];
         updatedPersons.splice(personIndex, 1);
 
-        this.setState({persons: updatedPersons, isEdit: false, editPerson: null});
-        console.log(personIndex);
-        console.log("removed");
+        this.setState({persons: updatedPersons, isEdit: false, editedPersonIndex: null, editedPerson: null});
     }
 
+    orderByAge = () => {
+        if(!this.state.isOrdered) {
+            const orderedPersons = [...this.state.persons];
+            orderedPersons.sort((a,b) => (a.age > b.age)? 1 : -1);
+            
+            this.setState({persons: orderedPersons, isOrdered: true});
+        } else {
+            const orderedDescPersons = [...this.state.persons];
+            orderedDescPersons.sort((a,b) => (a.age > b.age)? -1 : 1);
 
-    render () {        
+            this.setState({persons: orderedDescPersons, isOrdered: false});
+        }
+    }
+
+    orderBySex = (e) => {
+        if(e.target.value === "null"){
+            this.setState({filter: null})
+        } else {
+            this.setState({filter: e.target.value});
+        }
+    }
+
+    render () {   
         return (
             <Aux>
                 <div className="Persons">
@@ -78,8 +101,14 @@ class Persons extends Component {
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Age</th>
-                                <th>Sex</th>
+                                <th>Age <button onClick={this.orderByAge}>click</button></th>
+                                <th>Sex 
+                                    <select onChange={this.orderBySex}>
+                                        <option value="null"> </option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                        <option value="O">O</option>
+                                    </select></th>
                                 <th>Updated On</th>
                             </tr>
                         </thead>
@@ -91,7 +120,8 @@ class Persons extends Component {
                                 id={index}
                                 removePerson={this.removePerson}
                                 editPerson={this.prepEditPerson}
-                                editedPerson={this.state.editedPerson} />
+                                editedPersonIndex={this.state.editedPersonIndex}
+                                filter={this.state.filter} />
                             ))}
                         </tbody>
                     </table>
@@ -99,6 +129,7 @@ class Persons extends Component {
                 <AddPerson 
                     addPerson={this.addPerson} 
                     updatePerson={this.updatePerson}
+                    editedPerson={this.state.editedPerson}
                     disabled={this.state.isEdit}/>
             </Aux>
         );
