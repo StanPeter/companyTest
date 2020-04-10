@@ -3,25 +3,25 @@ import "./Persons.css"
 //components
 import Person from "../../components/Person/Person";
 import Aux from "../../hoc/Aux";
-import AddPerson from "../../components/AddPerson/AddPerson";
+import PersonControl from "../../components/PersonControl/PersonControl";
 //for redux
 import { connect } from "react-redux";
 import * as actionTypes from "../../store/action";
 
 
 class Persons extends Component {
-
+    
     render () {   
         return (
             <Aux>
-                <div className="Persons">
-                    <table border="1" className="table">
+                <div className="CustomTable">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Age <button onClick={this.props.orderByAge}>click</button></th>
-                                <th>Sex 
-                                    <select onChange={this.props.orderBySex}>
+                                <th>Age <a onClick={this.props.orderByAge}><i className="fas fa-sort"></i></a></th>
+                                <th>Sex
+                                    <select className="ml-2" onChange={this.props.orderBySex}>
                                         <option value="null"> </option>
                                         <option value="M">M</option>
                                         <option value="F">F</option>
@@ -44,7 +44,7 @@ class Persons extends Component {
                         </tbody>
                     </table>
                 </div>
-                <AddPerson 
+                <PersonControl 
                     addPerson={this.props.addPerson} 
                     updatePerson={this.props.updatePerson}
                     editedPerson={this.props.editedPerson}

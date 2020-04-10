@@ -1,11 +1,11 @@
 import React from "react";
-import "./AddPerson.css";
+import "./PersonControl.css";
 
-const AddPersonControl = (props) => {
+const PersonControl = (props) => {
 
     return (
         <form className="CustomForm" onSubmit={!props.disabled? props.addPerson: props.updatePerson}>
-            <h3>{!props.disabled? "Add Person":"Edit Person"}</h3>
+            <h2 className="FadeInSlow">{!props.disabled? "Add Person":"Edit Person"}</h2>
             <div className="form-control">
                 <label for="name">{props.disabled? props.editedPerson.name: "Name"}</label>
                 <input className="form-control" type="text" pattern="[A-Za-z]{2,10}" minLength="2" maxLength="10" id="name" name="name" required />
@@ -33,4 +33,4 @@ const AddPersonControl = (props) => {
 
 
 
-export default AddPersonControl;
+export default PersonControl;

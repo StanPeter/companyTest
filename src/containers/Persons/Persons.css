@@ -1,5 +1,14 @@
-.Persons {
-    /* border-bottom: 1px dashed black; */
+/* classes */
+.CustomTable {
     width: 60% !important;
     margin: 10% auto;
 }
+
+.CustomTable th {
+    font-size: 1.2rem;
+}
+
+.CustomTable a {
+    cursor: pointer;
+}
+
