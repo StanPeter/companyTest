@@ -14,6 +14,7 @@ body {
 }
 
 /* bootstrap4 */
+
 .btn:disabled {
   opacity: 0.35;
 }
@@ -25,5 +26,3 @@ body {
 input, .form-control {
   background-color: transparent;
 }
-
-

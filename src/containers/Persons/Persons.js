@@ -10,8 +10,8 @@ import * as actionTypes from "../../store/action";
 
 
 class Persons extends Component {
-    
-    render () {   
+
+    render() {
         return (
             <Aux>
                 <div className="CustomTable">
@@ -32,23 +32,23 @@ class Persons extends Component {
                         </thead>
                         <tbody>
                             {this.props.persons.map((person, index) => (
-                            <Person 
-                                person={person} 
-                                key={index} 
-                                id={index}
-                                removePerson={this.props.removePerson}
-                                editPerson={this.props.prepEditPerson}
-                                editedPersonIndex={this.props.editedPersonIndex}
-                                filter={this.props.filter} />
+                                <Person
+                                    person={person}
+                                    key={index}
+                                    id={index}
+                                    removePerson={this.props.removePerson}
+                                    editPerson={this.props.prepEditPerson}
+                                    editedPersonIndex={this.props.editedPersonIndex}
+                                    filter={this.props.filter} />
                             ))}
                         </tbody>
                     </table>
                 </div>
-                <PersonControl 
-                    addPerson={this.props.addPerson} 
+                <PersonControl
+                    addPerson={this.props.addPerson}
                     updatePerson={this.props.updatePerson}
                     editedPerson={this.props.editedPerson}
-                    disabled={this.props.isEdit}/>
+                    disabled={this.props.isEdit} />
             </Aux>
         );
     }
@@ -67,12 +67,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPerson: (e) => dispatch({type: actionTypes.ADD_PERSON, e: e}),
-        prepEditPerson: (personIndex) => dispatch({type: actionTypes.PREP_EDIT_PERSON, personIndex: personIndex}),
-        updatePerson: (e) => dispatch({type: actionTypes.UPDATE_PERSON, e: e}),
-        removePerson: (personIndex) => dispatch({type: actionTypes.REMOVE_PERSON, personIndex: personIndex}),
-        orderByAge: () => dispatch({type: actionTypes.ORDER_BY_AGE}),
-        orderBySex: (e) => dispatch({type: actionTypes.ORDER_BY_SEX, e: e})
+        addPerson: (e) => dispatch({ type: actionTypes.ADD_PERSON, e: e }),
+        prepEditPerson: (personIndex) => dispatch({ type: actionTypes.PREP_EDIT_PERSON, personIndex: personIndex }),
+        updatePerson: (e) => dispatch({ type: actionTypes.UPDATE_PERSON, e: e }),
+        removePerson: (personIndex) => dispatch({ type: actionTypes.REMOVE_PERSON, personIndex: personIndex }),
+        orderByAge: () => dispatch({ type: actionTypes.ORDER_BY_AGE }),
+        orderBySex: (e) => dispatch({ type: actionTypes.ORDER_BY_SEX, e: e })
     };
 };
 

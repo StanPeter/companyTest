@@ -1,29 +1,31 @@
 /* classes */
+
 .Red {
-    color: rgb(245, 71, 71);
-    cursor: pointer;
+  color: rgb(245, 71, 71);
+  cursor: pointer;
 }
 
 .Yellow {
-    color: rgb(185, 185, 29);
-    cursor: pointer;
+  color: rgb(185, 185, 29);
+  cursor: pointer;
 }
 
 .Red:hover, .Yellow:hover {
-    box-shadow: 1px 1px 5px 2.5px rgba(104,104,104,0.6);
-    -webkit-box-shadow: 1px 1px 5px 2.5px rgba(104,104,104,0.6); 
+  box-shadow: 1px 1px 5px 2.5px rgba(104, 104, 104, 0.6);
+  -webkit-box-shadow: 1px 1px 5px 2.5px rgba(104, 104, 104, 0.6);
 }
 
 /* animations */
+
 .FadeIn {
-    animation: FadeIn ease 3s;
+  animation: FadeIn ease 3s;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
   }
-  
-  @keyframes FadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
+  100% {
+    opacity: 1;
   }
+}

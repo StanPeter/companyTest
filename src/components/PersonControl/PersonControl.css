@@ -1,20 +1,22 @@
 /* classes */
+
 .CustomForm {
-    width: 40%;
-    margin: 5% auto;
+  width: 40%;
+  margin: 5% auto;
 }
 
-.CustomForm label{
-    font-weight: 900;
-    font-size: 1.2rem;
+.CustomForm label {
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 
 .CustomInput {
-    width: 35%;
-    margin: 0 auto;
+  width: 35%;
+  margin: 0 auto;
 }
 
 /* animations */
+
 .FadeInSlow {
   animation: FadeInSlow ease 8s;
   animation-fill-mode: backwards;
@@ -22,12 +24,12 @@
 
 @keyframes FadeInSlow {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   50% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }

@@ -1,4 +1,5 @@
 /* classes */
+
 .CustomTable {
     width: 60% !important;
     margin: 10% auto;
@@ -11,4 +12,3 @@
 .CustomTable a {
     cursor: pointer;
 }
-
